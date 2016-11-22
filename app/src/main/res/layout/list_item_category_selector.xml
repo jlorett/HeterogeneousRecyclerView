@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="One"
+            android:backgroundTint="@color/colorAccent"
+            style="@style/CategoryButton"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Two"
+            android:backgroundTint="@color/colorAccent"
+            style="@style/CategoryButton"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Three"
+            android:backgroundTint="@color/colorAccent"
+            style="@style/CategoryButton"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Four"
+            android:backgroundTint="@color/colorAccent"
+            style="@style/CategoryButton"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Five"
+            android:backgroundTint="@color/colorAccent"
+            style="@style/CategoryButton"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Six"
+            android:backgroundTint="@color/colorAccent"
+            style="@style/CategoryButton"/>
+    </LinearLayout>
+</HorizontalScrollView>
