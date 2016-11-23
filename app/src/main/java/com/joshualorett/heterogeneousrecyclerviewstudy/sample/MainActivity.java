@@ -6,9 +6,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
+import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerViewModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorViewModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.sample_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        SampleRecyclerViewAdapter adapter = new SampleRecyclerViewAdapter();
+        SampleRecyclerViewAdapter adapter = new SampleRecyclerViewAdapter(new ViewHolderCreator[] {
+                new BannerCreator(), new CategorySelectorCreator(), new ContentSelectorCreator()});
         adapter.setData(getViewModels());
         recyclerView.setAdapter(adapter);
     }
