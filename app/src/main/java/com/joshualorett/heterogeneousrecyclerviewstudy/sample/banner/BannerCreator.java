@@ -8,6 +8,7 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
 
 /**
+ * Creates a BannerViewHolder.
  * Created by Joshua on 11/21/2016.
  */
 

@@ -6,11 +6,13 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
 
 /**
+ * CategorySelectorViewHolder ViewModel.
  * Created by Joshua on 11/20/2016.
  */
 
 public class CategorySelectorViewModel implements ViewHolderModel {
-    public CategorySelectorViewModel() {}
+    public CategorySelectorViewModel() {
+    }
 
     @Override
     public int getViewType() {

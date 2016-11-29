@@ -6,6 +6,7 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
 
 /**
+ * BannerViewHolder ViewModel.
  * Created by Joshua on 11/21/2016.
  */
 

@@ -11,12 +11,14 @@ import android.view.ViewGroup;
 public interface ViewHolderCreator {
     /***
      * Get the view holders view type.
+     *
      * @return View type
      */
     int getViewType();
 
     /***
      * Create a new view holder.
+     *
      * @param parent {@inheritDoc}
      * @return View holder.
      */

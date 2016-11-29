@@ -14,12 +14,12 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
 public class SampleRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ViewHolderModel[] viewModels;
 
-    private SparseArrayCompat<ViewHolderCreator> creators;;
+    private SparseArrayCompat<ViewHolderCreator> creators;
 
     public SampleRecyclerViewAdapter(ViewHolderCreator[] viewHolderCreators) {
         viewModels = new ViewHolderModel[0];
 
-        if(viewHolderCreators != null) {
+        if (viewHolderCreators != null) {
             creators = new SparseArrayCompat<>(viewHolderCreators.length);
 
             for (ViewHolderCreator creator : viewHolderCreators) {
@@ -32,7 +32,7 @@ public class SampleRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewHolderCreator creator = creators.get(viewType);
 
-        if(creator == null) {
+        if (creator == null) {
             throw new NullPointerException("Could not find creator.");
         }
 

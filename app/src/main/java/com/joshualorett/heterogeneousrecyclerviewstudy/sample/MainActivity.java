@@ -1,7 +1,7 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.sample;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.sample_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        SampleRecyclerViewAdapter adapter = new SampleRecyclerViewAdapter(new ViewHolderCreator[] {
+        SampleRecyclerViewAdapter adapter = new SampleRecyclerViewAdapter(new ViewHolderCreator[]{
                 new BannerCreator(), new CategorySelectorCreator(), new ContentSelectorCreator()});
         adapter.setData(getViewModels());
         recyclerView.setAdapter(adapter);
