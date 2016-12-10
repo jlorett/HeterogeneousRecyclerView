@@ -20,6 +20,7 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.Co
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewModel;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private Toast toast;
@@ -38,22 +39,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ViewHolderModel[] getViewModels() {
-        ContentSelectorViewModel contentSelectorViewModel = new ContentSelectorViewModel();
-        contentSelectorViewModel.setViewHolderModels(getContentViewModels());
-
         return new ViewHolderModel[]{new CategorySelectorViewModel(),
-                contentSelectorViewModel,
-                contentSelectorViewModel,
+                new ContentSelectorViewModel(getContentViewModels()),
+                new ContentSelectorViewModel(getContentViewModels()),
                 new BannerViewModel(),
-                contentSelectorViewModel,
+                new ContentSelectorViewModel(getContentViewModels()),
                 new BannerViewModel()};
     }
 
     private ViewHolderModel[] getContentViewModels() {
-        return new ViewHolderModel[]{new ContentViewModel(),
-                new ContentViewModel(),
-                new ContentViewModel(),
-                new ContentViewModel()};
+        Random random = new Random();
+        int randomSize = random.nextInt(100 - 3) + 3;
+
+        ViewHolderModel[] viewHolderModels = new ViewHolderModel[randomSize];
+
+        for (int i = 0; i < randomSize; i++) {
+            viewHolderModels[i] = new ContentViewModel();
+        }
+
+        return viewHolderModels;
     }
 
     private ViewHolderCreator[] getViewHolderCreators() {

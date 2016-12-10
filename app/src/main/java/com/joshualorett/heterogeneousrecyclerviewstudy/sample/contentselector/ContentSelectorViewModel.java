@@ -17,6 +17,10 @@ public class ContentSelectorViewModel implements ViewHolderModel {
         this.viewHolderModels = new ViewHolderModel[0];
     }
 
+    public ContentSelectorViewModel(ViewHolderModel[] viewHolderModels) {
+        this.viewHolderModels = viewHolderModels;
+    }
+
     public void setViewHolderModels(ViewHolderModel[] viewHolderModels) {
         this.viewHolderModels = viewHolderModels;
     }
