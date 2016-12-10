@@ -15,6 +15,7 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerViewM
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorViewModel;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorCreator;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewHolder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewModel;
 
 import java.util.Locale;
@@ -53,8 +54,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ContentSelectorCreator contentSelectorCreator = new ContentSelectorCreator();
+        contentSelectorCreator.setHeaderActionClickListener(new ContentSelectorViewHolder.HeaderActionClickListener() {
+            @Override
+            public void onHeaderActionClick(int position) {
+                showMessage(String.format(Locale.getDefault(), "Action header @ position %d clicked", position));
+            }
+        });
+
         return new ViewHolderCreator[]{bannerCreator,
-                new CategorySelectorCreator(), new ContentSelectorCreator()};
+                new CategorySelectorCreator(), contentSelectorCreator};
     }
 
     private void showMessage(String message) {

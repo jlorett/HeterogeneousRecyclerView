@@ -13,6 +13,12 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
  */
 
 public class ContentSelectorCreator implements ViewHolderCreator {
+    private ContentSelectorViewHolder.HeaderActionClickListener actionClickListener;
+
+    public void setHeaderActionClickListener(ContentSelectorViewHolder.HeaderActionClickListener actionClickListener) {
+        this.actionClickListener = actionClickListener;
+    }
+
     @Override
     public int getViewType() {
         return R.layout.list_item_content_selector;
@@ -20,7 +26,11 @@ public class ContentSelectorCreator implements ViewHolderCreator {
 
     @Override
     public RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
-        return new ContentSelectorViewHolder(LayoutInflater.from(parent.getContext())
+        ContentSelectorViewHolder viewHolder = new ContentSelectorViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(getViewType(), parent, false));
+
+        viewHolder.setHeaderActionClickListener(actionClickListener);
+
+        return viewHolder;
     }
 }
