@@ -11,6 +11,16 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
  */
 
 public class ContentSelectorViewModel implements ViewHolderModel {
+    private ViewHolderModel[] viewHolderModels;
+
+    public ContentSelectorViewModel(){
+        this.viewHolderModels = new ViewHolderModel[0];
+    }
+
+    public void setViewHolderModels(ViewHolderModel[] viewHolderModels) {
+        this.viewHolderModels = viewHolderModels;
+    }
+
     @Override
     public int getViewType() {
         return R.layout.list_item_content_selector;
@@ -18,6 +28,7 @@ public class ContentSelectorViewModel implements ViewHolderModel {
 
     @Override
     public void bind(RecyclerView.ViewHolder viewHolder) {
-
+        ContentSelectorViewHolder contentViewHolder = (ContentSelectorViewHolder) viewHolder;
+        contentViewHolder.setData(viewHolderModels);
     }
 }

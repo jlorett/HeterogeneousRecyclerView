@@ -17,6 +17,7 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.C
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewHolder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewModel;
 
 import java.util.Locale;
 
@@ -37,12 +38,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ViewHolderModel[] getViewModels() {
+        ContentSelectorViewModel contentSelectorViewModel = new ContentSelectorViewModel();
+        contentSelectorViewModel.setViewHolderModels(getContentViewModels());
+
         return new ViewHolderModel[]{new CategorySelectorViewModel(),
-                new ContentSelectorViewModel(),
-                new ContentSelectorViewModel(),
+                contentSelectorViewModel,
+                contentSelectorViewModel,
                 new BannerViewModel(),
-                new ContentSelectorViewModel(),
+                contentSelectorViewModel,
                 new BannerViewModel()};
+    }
+
+    private ViewHolderModel[] getContentViewModels() {
+        return new ViewHolderModel[]{new ContentViewModel(),
+                new ContentViewModel(),
+                new ContentViewModel(),
+                new ContentViewModel()};
     }
 
     private ViewHolderCreator[] getViewHolderCreators() {
@@ -59,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onHeaderActionClick(int position) {
                 showMessage(String.format(Locale.getDefault(), "Action header @ position %d clicked", position));
+            }
+        });
+        contentSelectorCreator.setItemClickListener(new ContentSelectorViewHolder.ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                showMessage(String.format(Locale.getDefault(), "Content @ position %d clicked", position));
             }
         });
 

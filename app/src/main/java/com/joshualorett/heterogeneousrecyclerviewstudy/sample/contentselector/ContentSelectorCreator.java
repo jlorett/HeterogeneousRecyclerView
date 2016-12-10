@@ -15,8 +15,14 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
 public class ContentSelectorCreator implements ViewHolderCreator {
     private ContentSelectorViewHolder.HeaderActionClickListener actionClickListener;
 
+    private ContentSelectorViewHolder.ItemClickListener itemClickListener;
+
     public void setHeaderActionClickListener(ContentSelectorViewHolder.HeaderActionClickListener actionClickListener) {
         this.actionClickListener = actionClickListener;
+    }
+
+    public void setItemClickListener(ContentSelectorViewHolder.ItemClickListener listener) {
+        itemClickListener = listener;
     }
 
     @Override
@@ -28,9 +34,8 @@ public class ContentSelectorCreator implements ViewHolderCreator {
     public RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
         ContentSelectorViewHolder viewHolder = new ContentSelectorViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(getViewType(), parent, false));
-
         viewHolder.setHeaderActionClickListener(actionClickListener);
-
+        viewHolder.setItemClickListener(itemClickListener);
         return viewHolder;
     }
 }
