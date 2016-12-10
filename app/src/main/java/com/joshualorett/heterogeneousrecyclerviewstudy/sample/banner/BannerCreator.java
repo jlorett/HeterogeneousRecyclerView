@@ -13,6 +13,14 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
  */
 
 public class BannerCreator implements ViewHolderCreator {
+    private BannerViewHolder.ClickListener clickListener;
+
+    public BannerCreator(){}
+
+    public void setClickListener(BannerViewHolder.ClickListener listener) {
+        clickListener = listener;
+    }
+
     @Override
     public int getViewType() {
         return R.layout.list_item_banner;
@@ -20,7 +28,11 @@ public class BannerCreator implements ViewHolderCreator {
 
     @Override
     public RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
-        return new BannerViewHolder(LayoutInflater.from(parent.getContext())
+        BannerViewHolder viewHolder = new BannerViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(getViewType(), parent, false));
+
+        viewHolder.setClickListener(clickListener);
+
+        return viewHolder;
     }
 }

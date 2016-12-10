@@ -8,7 +8,26 @@ import android.view.View;
  */
 
 public class BannerViewHolder extends RecyclerView.ViewHolder {
+    private ClickListener clickListener;
+
     public BannerViewHolder(View itemView) {
         super(itemView);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(clickListener != null) {
+                    clickListener.onClick(getAdapterPosition());
+                }
+            }
+        });
+    }
+
+    public void setClickListener(ClickListener listener) {
+        this.clickListener = listener;
+    }
+
+    public interface ClickListener{
+        void onClick(int position);
     }
 }

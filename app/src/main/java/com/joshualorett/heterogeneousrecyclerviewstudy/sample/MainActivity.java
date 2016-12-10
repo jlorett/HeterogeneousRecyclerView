@@ -4,18 +4,23 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerCreator;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerViewHolder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerViewModel;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorViewModel;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewModel;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.sample_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        SampleRecyclerViewAdapter adapter = new SampleRecyclerViewAdapter(new ViewHolderCreator[]{
-                new BannerCreator(), new CategorySelectorCreator(), new ContentSelectorCreator()});
+        SampleRecyclerViewAdapter adapter = new SampleRecyclerViewAdapter(getViewHolderCreators());
         adapter.setData(getViewModels());
         recyclerView.setAdapter(adapter);
     }
@@ -36,6 +40,28 @@ public class MainActivity extends AppCompatActivity {
                 new ContentSelectorViewModel(),
                 new ContentSelectorViewModel(),
                 new BannerViewModel(),
-                new ContentSelectorViewModel()};
+                new ContentSelectorViewModel(),
+                new BannerViewModel()};
+    }
+
+    private ViewHolderCreator[] getViewHolderCreators() {
+        BannerCreator bannerCreator = new BannerCreator();
+        bannerCreator.setClickListener(new BannerViewHolder.ClickListener() {
+            @Override
+            public void onClick(int position) {
+                showMessage(String.format(Locale.getDefault(), "Banner @ position %d clicked", position));
+            }
+        });
+
+        return new ViewHolderCreator[]{bannerCreator,
+                new CategorySelectorCreator(), new ContentSelectorCreator()};
+    }
+
+    private void showMessage(String message) {
+        if(toast != null) {
+            toast.cancel();
+        }
+        toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }
