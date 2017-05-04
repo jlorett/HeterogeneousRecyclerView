@@ -10,6 +10,12 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
  */
 
 public class ContentViewModel implements ViewHolderModel {
+    private Content content;
+
+    public ContentViewModel(Content content) {
+        this.content = content;
+    }
+
     @Override
     public int getViewType() {
         return R.layout.content_card;
@@ -17,6 +23,11 @@ public class ContentViewModel implements ViewHolderModel {
 
     @Override
     public void bind(RecyclerView.ViewHolder viewHolder) {
+        ((ContentViewHolder)viewHolder).cardTitleView.setText(content.getTitle());
+    }
 
+    @Override
+    public Object emit() {
+        return content;
     }
 }

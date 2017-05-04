@@ -2,6 +2,9 @@ package com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.c
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
+
+import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 
 /**
  * Created by Joshua on 12/10/2016.
@@ -10,8 +13,12 @@ import android.view.View;
 public class ContentViewHolder extends RecyclerView.ViewHolder {
     private ContentClickListener clickListener;
 
+    public TextView cardTitleView;
+
     public ContentViewHolder(View itemView) {
         super(itemView);
+
+        cardTitleView = (TextView) itemView.findViewById(R.id.card_title);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

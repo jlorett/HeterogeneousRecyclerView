@@ -7,8 +7,10 @@ import android.support.v7.widget.RecyclerView;
  * Created by Joshua on 11/20/2016.
  */
 
-public interface ViewHolderModel {
+public interface ViewHolderModel<T> {
     int getViewType();
 
     void bind(RecyclerView.ViewHolder viewHolder);
+
+    T emit();
 }

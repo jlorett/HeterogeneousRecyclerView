@@ -4,24 +4,25 @@ import android.support.v7.widget.RecyclerView;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewModel;
 
 /**
  * ContentSelectorViewHolder ViewModel.
  * Created by Joshua on 11/21/2016.
  */
 
-public class ContentSelectorViewModel implements ViewHolderModel {
-    private ViewHolderModel[] viewHolderModels;
+public class ContentSelectorViewModel implements ViewHolderModel<ContentViewModel[]> {
+    private ContentViewModel[] viewHolderModels;
 
     public ContentSelectorViewModel(){
-        this.viewHolderModels = new ViewHolderModel[0];
+        this.viewHolderModels = new ContentViewModel[0];
     }
 
-    public ContentSelectorViewModel(ViewHolderModel[] viewHolderModels) {
+    public ContentSelectorViewModel(ContentViewModel[] viewHolderModels) {
         this.viewHolderModels = viewHolderModels;
     }
 
-    public void setViewHolderModels(ViewHolderModel[] viewHolderModels) {
+    public void setViewHolderModels(ContentViewModel[] viewHolderModels) {
         this.viewHolderModels = viewHolderModels;
     }
 
@@ -34,5 +35,10 @@ public class ContentSelectorViewModel implements ViewHolderModel {
     public void bind(RecyclerView.ViewHolder viewHolder) {
         ContentSelectorViewHolder contentViewHolder = (ContentSelectorViewHolder) viewHolder;
         contentViewHolder.setData(viewHolderModels);
+    }
+
+    @Override
+    public ContentViewModel[] emit() {
+        return viewHolderModels;
     }
 }

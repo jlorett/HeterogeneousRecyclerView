@@ -49,7 +49,7 @@ public class ContentSelectorViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onContentClick(int position) {
                 if(itemClickListener != null) {
-                    itemClickListener.onItemClick(position);
+                    itemClickListener.onItemClick(getAdapterPosition(), position);
                 }
             }
         });
@@ -75,6 +75,6 @@ public class ContentSelectorViewHolder extends RecyclerView.ViewHolder {
     }
 
     public interface ItemClickListener {
-        void onItemClick(int position);
+        void onItemClick(int parentPosition, int position);
     }
 }

@@ -10,8 +10,11 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
  * Created by Joshua on 11/20/2016.
  */
 
-public class CategorySelectorViewModel implements ViewHolderModel {
-    public CategorySelectorViewModel() {
+public class CategorySelectorViewModel implements ViewHolderModel<Category> {
+    private Category category;
+
+    public CategorySelectorViewModel(Category category) {
+        this.category = category;
     }
 
     @Override
@@ -21,5 +24,10 @@ public class CategorySelectorViewModel implements ViewHolderModel {
 
     @Override
     public void bind(RecyclerView.ViewHolder viewHolder) {
+    }
+
+    @Override
+    public Category emit() {
+        return category;
     }
 }
