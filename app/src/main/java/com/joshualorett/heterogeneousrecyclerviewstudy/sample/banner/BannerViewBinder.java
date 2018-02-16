@@ -24,7 +24,7 @@ public class BannerViewBinder implements ViewHolderBinder<Banner> {
 
     @Override
     public void bind(RecyclerView.ViewHolder viewHolder) {
-
+        ((BannerViewHolder)viewHolder).setBannerHeader("Banner");
     }
 
     @Override
