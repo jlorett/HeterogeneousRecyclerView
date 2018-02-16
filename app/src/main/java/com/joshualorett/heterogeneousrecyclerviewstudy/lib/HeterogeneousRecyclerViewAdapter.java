@@ -1,23 +1,23 @@
-package com.joshualorett.heterogeneousrecyclerviewstudy.sample;
+package com.joshualorett.heterogeneousrecyclerviewstudy.lib;
 
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
-import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
-
 /**
+ * RecyclerView adapter using ViewHolderCreators to create ViewHolders and handle callbacks and
+ * ViewHolderBinders to bind content.
+ *
  * Created by Joshua on 11/20/2016.
  */
 
-public class SampleRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ViewHolderModel[] viewModels;
+public class HeterogeneousRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private ViewHolderBinder[] binders;
 
     private SparseArrayCompat<ViewHolderCreator> creators;
 
-    public SampleRecyclerViewAdapter(ViewHolderCreator[] viewHolderCreators) {
-        viewModels = new ViewHolderModel[0];
+    public HeterogeneousRecyclerViewAdapter(ViewHolderCreator[] viewHolderCreators) {
+        binders = new ViewHolderBinder[0];
 
         if (viewHolderCreators != null) {
             creators = new SparseArrayCompat<>(viewHolderCreators.length);
@@ -41,20 +41,20 @@ public class SampleRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        viewModels[position].bind(holder);
+        binders[position].bind(holder);
     }
 
     @Override
     public int getItemViewType(int position) {
-        return viewModels[position].getViewType();
+        return binders[position].getViewType();
     }
 
     @Override
     public int getItemCount() {
-        return viewModels.length;
+        return binders.length;
     }
 
-    public void setData(ViewHolderModel[] viewModels) {
-        this.viewModels = viewModels;
+    public void setData(ViewHolderBinder[] viewModels) {
+        this.binders = viewModels;
     }
 }

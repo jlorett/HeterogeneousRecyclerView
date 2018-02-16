@@ -1,6 +1,7 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner;
 
 /**
+ * Data for the BannerViewHolder.
  * Created by Joshua on 5/3/2017.
  */
 

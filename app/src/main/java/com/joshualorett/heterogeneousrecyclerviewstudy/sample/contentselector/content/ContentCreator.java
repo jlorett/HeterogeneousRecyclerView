@@ -8,6 +8,7 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
 
 /**
+ * Creates a ContentViewHolder.
  * Created by Joshua on 12/10/2016.
  */
 

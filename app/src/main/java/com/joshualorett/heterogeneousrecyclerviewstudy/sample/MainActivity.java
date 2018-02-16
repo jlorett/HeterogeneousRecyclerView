@@ -7,34 +7,34 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
+import com.joshualorett.heterogeneousrecyclerviewstudy.lib.HeterogeneousRecyclerViewAdapter;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
-import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.Banner;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerViewHolder;
-import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerViewModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner.BannerViewBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.Category;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorCreator;
-import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorViewModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector.CategorySelectorViewBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewHolder;
-import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.ContentSelectorViewBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.Content;
-import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewBinder;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private Toast toast;
 
-    private ViewHolderModel[] viewHolderModels = new ViewHolderModel[]{new CategorySelectorViewModel(new Category("Blah")),
-            new ContentSelectorViewModel(getContentViewModels()),
-            new ContentSelectorViewModel(getContentViewModels()),
-            new BannerViewModel(new Banner("foo")),
-            new ContentSelectorViewModel(getContentViewModels()),
-            new BannerViewModel(new Banner("bar"))};
+    private ViewHolderBinder[] viewHolderBinders = new ViewHolderBinder[]{new CategorySelectorViewBinder(new Category("Blah")),
+            new ContentSelectorViewBinder(getContentViewModels()),
+            new ContentSelectorViewBinder(getContentViewModels()),
+            new BannerViewBinder(new Banner("foo")),
+            new ContentSelectorViewBinder(getContentViewModels()),
+            new BannerViewBinder(new Banner("bar"))};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,19 +44,19 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.sample_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        SampleRecyclerViewAdapter adapter = new SampleRecyclerViewAdapter(getViewHolderCreators());
-        adapter.setData(viewHolderModels);
+        HeterogeneousRecyclerViewAdapter adapter = new HeterogeneousRecyclerViewAdapter(getViewHolderCreators());
+        adapter.setData(viewHolderBinders);
         recyclerView.setAdapter(adapter);
     }
 
-    private ContentViewModel[] getContentViewModels() {
+    private ContentViewBinder[] getContentViewModels() {
         Random random = new Random();
         int randomSize = random.nextInt(100 - 3) + 3;
 
-        ContentViewModel[] viewHolderModels = new ContentViewModel[randomSize];
+        ContentViewBinder[] viewHolderModels = new ContentViewBinder[randomSize];
 
         for (int i = 0; i < randomSize; i++) {
-            viewHolderModels[i] = new ContentViewModel(new Content(RandomString.get(3, 10)));
+            viewHolderModels[i] = new ContentViewBinder(new Content(RandomString.get(3, 10)));
         }
 
         return viewHolderModels;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         bannerCreator.setClickListener(new BannerViewHolder.ClickListener() {
             @Override
             public void onClick(int position) {
-                Banner banner = (Banner) viewHolderModels[position].emit();
+                Banner banner = (Banner) viewHolderBinders[position].emit();
                 showMessage(String.format(Locale.getDefault(), "Banner @ position %d clicked: %s", position, banner.getText()));
             }
         });
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         contentSelectorCreator.setItemClickListener(new ContentSelectorViewHolder.ItemClickListener() {
             @Override
             public void onItemClick(int parentPosition, int position) {
-                ContentViewModel[] contentViewModel = (ContentViewModel[]) viewHolderModels[parentPosition].emit();
+                ContentViewBinder[] contentViewModel = (ContentViewBinder[]) viewHolderBinders[parentPosition].emit();
                 Content content = (Content) contentViewModel[position].emit();
                 showMessage(String.format(Locale.getDefault(), "Content @ position %d clicked: %s", position, content.getTitle()));
             }

@@ -1,6 +1,7 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector;
 
 /**
+ * Data for the CategorySelectorViewHolder.
  * Created by Joshua on 5/3/2017.
  */
 

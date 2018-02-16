@@ -3,17 +3,17 @@ package com.joshualorett.heterogeneousrecyclerviewstudy.sample.categoryselector;
 import android.support.v7.widget.RecyclerView;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
-import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder;
 
 /**
- * CategorySelectorViewHolder ViewModel.
+ * CategorySelectorViewHolder Binder.
  * Created by Joshua on 11/20/2016.
  */
 
-public class CategorySelectorViewModel implements ViewHolderModel<Category> {
+public class CategorySelectorViewBinder implements ViewHolderBinder<Category> {
     private Category category;
 
-    public CategorySelectorViewModel(Category category) {
+    public CategorySelectorViewBinder(Category category) {
         this.category = category;
     }
 

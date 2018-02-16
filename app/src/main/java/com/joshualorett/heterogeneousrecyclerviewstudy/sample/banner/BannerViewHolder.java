@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
+ * ViewHolder for banner.
  * Created by Joshua on 11/21/2016.
  */
 

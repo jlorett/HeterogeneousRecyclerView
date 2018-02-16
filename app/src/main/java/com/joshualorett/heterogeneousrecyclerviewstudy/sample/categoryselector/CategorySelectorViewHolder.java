@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
+ * ViewHolder for category selector.
  * Created by Joshua on 11/20/2016.
  */
 

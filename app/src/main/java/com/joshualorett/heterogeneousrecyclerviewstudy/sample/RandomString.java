@@ -3,11 +3,12 @@ package com.joshualorett.heterogeneousrecyclerviewstudy.sample;
 import java.security.SecureRandom;
 
 /**
+ * Return a random string.
  * Created by Joshua on 5/3/2017.
  */
 
 public class RandomString {
-    static final String CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    private static final String CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static String get(int min, int max) {
         SecureRandom rnd = new SecureRandom();

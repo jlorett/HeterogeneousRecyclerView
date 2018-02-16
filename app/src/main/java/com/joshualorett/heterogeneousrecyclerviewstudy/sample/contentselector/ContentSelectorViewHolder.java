@@ -7,12 +7,13 @@ import android.widget.Button;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
-import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
-import com.joshualorett.heterogeneousrecyclerviewstudy.sample.SampleRecyclerViewAdapter;
+import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder;
+import com.joshualorett.heterogeneousrecyclerviewstudy.lib.HeterogeneousRecyclerViewAdapter;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewHolder;
 
 /**
+ * ViewHolder for content selector.
  * Created by Joshua on 11/21/2016.
  */
 
@@ -39,7 +40,7 @@ public class ContentSelectorViewHolder extends RecyclerView.ViewHolder {
         recyclerView = (RecyclerView) itemView.findViewById(R.id.content_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false));
-        SampleRecyclerViewAdapter adapter = new SampleRecyclerViewAdapter(getCreators());
+        HeterogeneousRecyclerViewAdapter adapter = new HeterogeneousRecyclerViewAdapter(getCreators());
         recyclerView.setAdapter(adapter);
     }
 
@@ -56,9 +57,9 @@ public class ContentSelectorViewHolder extends RecyclerView.ViewHolder {
         return new ViewHolderCreator[]{contentCreator};
     }
 
-    public void setData(ViewHolderModel[] viewHolderModels) {
-        SampleRecyclerViewAdapter adapter = (SampleRecyclerViewAdapter) recyclerView.getAdapter();
-        adapter.setData(viewHolderModels);
+    public void setData(ViewHolderBinder[] viewHolderBinders) {
+        HeterogeneousRecyclerViewAdapter adapter = (HeterogeneousRecyclerViewAdapter) recyclerView.getAdapter();
+        adapter.setData(viewHolderBinders);
         adapter.notifyDataSetChanged();
     }
 

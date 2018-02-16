@@ -3,17 +3,17 @@ package com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner;
 import android.support.v7.widget.RecyclerView;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
-import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderModel;
+import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder;
 
 /**
- * BannerViewHolder ViewModel.
+ * BannerViewHolder Binder.
  * Created by Joshua on 11/21/2016.
  */
 
-public class BannerViewModel implements ViewHolderModel<Banner> {
+public class BannerViewBinder implements ViewHolderBinder<Banner> {
     private Banner banner;
 
-    public BannerViewModel(Banner banner) {
+    public BannerViewBinder(Banner banner) {
         this.banner = banner;
     }
 

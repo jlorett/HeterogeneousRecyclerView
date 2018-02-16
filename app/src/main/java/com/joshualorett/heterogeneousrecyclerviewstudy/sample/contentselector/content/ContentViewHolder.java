@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 
 /**
+ * ViewHolder for content.
  * Created by Joshua on 12/10/2016.
  */
 

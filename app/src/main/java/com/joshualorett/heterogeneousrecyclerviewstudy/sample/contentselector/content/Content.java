@@ -1,6 +1,7 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content;
 
 /**
+ * Data for ContentViewHolder.
  * Created by Joshua on 5/3/2017.
  */
 
