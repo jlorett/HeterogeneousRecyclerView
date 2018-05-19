@@ -9,15 +9,15 @@ import android.support.v7.widget.RecyclerView;
 
 public interface ViewHolderBinder<T> {
     /***
-     * Get the view type this binder is associated with.
-     *
+     * Get the view type this binder is associated with. This should match at least one
+     * ViewHolderCreator's view type.
      * @return View type
      */
     int getViewType();
 
     /***
      * Bind ViewHolder with data T held.
-     * @param viewHolder the viewholder we want to bind data to.
+     * @param viewHolder the ViewHolder we want to bind data to.
      */
     void bind(RecyclerView.ViewHolder viewHolder);
 

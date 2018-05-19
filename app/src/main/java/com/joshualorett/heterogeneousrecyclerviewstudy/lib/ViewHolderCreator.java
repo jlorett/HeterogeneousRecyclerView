@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 
 public interface ViewHolderCreator {
     /***
-     * Get the view holders view type.
-     *
+     * Get the view holders view type. This should match at least one ViewHolderBinder's view type.
      * @return View type
      */
     int getViewType();
