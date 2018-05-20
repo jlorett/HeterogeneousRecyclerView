@@ -59,7 +59,19 @@ public class HeterogeneousRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         return binders.length;
     }
 
-    public void setData(ViewHolderBinder[] viewModels) {
-        this.binders = viewModels;
+    /***
+     * Set the data for your list.
+     * @param binders the ViewHolderBinder you want the adapter to bind to the ViewHolder.
+     */
+    public void setBinders(ViewHolderBinder[] binders) {
+        this.binders = binders;
+    }
+
+    /***
+     * Get the data for your list.
+     * @return the ViewHolderBinders that bind data to your ViewHolders.
+     */
+    public ViewHolderBinder[] getBinders() {
+        return binders;
     }
 }
