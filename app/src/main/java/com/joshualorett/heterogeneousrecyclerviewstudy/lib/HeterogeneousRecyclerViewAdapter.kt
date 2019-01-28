@@ -3,8 +3,8 @@ package com.joshualorett.heterogeneousrecyclerviewstudy.lib
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import java.lang.IllegalArgumentException
 import java.util.Collections.emptyList
+import kotlin.IllegalArgumentException
 
 /**
  * This adapter will trigger ViewHolder creation and binding via its ViewHolderCreators and
@@ -26,6 +26,17 @@ class HeterogeneousRecyclerViewAdapter(viewHolderCreators: List<ViewHolderCreato
 
     init {
         viewHolderCreators.forEach { creator -> creators.put(creator.viewType, creator) }
+    }
+
+    fun addCreator(creator: ViewHolderCreator) {
+        if(creators.containsKey(creator.viewType)) {
+            throw IllegalArgumentException("A creator of type ${creator.viewType} already exists.")
+        }
+        creators.put(creator.viewType, creator)
+    }
+
+    fun removeCreatorByViewType(viewType: Int) {
+        creators.remove(viewType)
     }
 
     /***
