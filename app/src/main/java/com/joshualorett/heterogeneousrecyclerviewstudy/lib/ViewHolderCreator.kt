@@ -1,19 +1,19 @@
-package com.joshualorett.heterogeneousrecyclerviewstudy.lib;
+package com.joshualorett.heterogeneousrecyclerviewstudy.lib
 
-import android.support.v7.widget.RecyclerView;
-import android.view.ViewGroup;
+import android.support.v7.widget.RecyclerView
+import android.view.ViewGroup
 
 /**
  * Create a view holder.
  * Created by Joshua on 11/20/2016.
  */
 
-public interface ViewHolderCreator {
+interface ViewHolderCreator {
     /***
      * Get the view holders view type. This should match at least one ViewHolderBinder's view type.
      * @return View type
      */
-    int getViewType();
+    val viewType: Int
 
     /***
      * Create a new view holder.
@@ -21,5 +21,5 @@ public interface ViewHolderCreator {
      * @param parent {@inheritDoc}
      * @return View holder.
      */
-    RecyclerView.ViewHolder createViewHolder(ViewGroup parent);
+    fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder
 }

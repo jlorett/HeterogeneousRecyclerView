@@ -1,5 +1,6 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.sample.banner;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
@@ -23,7 +24,7 @@ public class BannerViewBinder implements ViewHolderBinder<Banner> {
     }
 
     @Override
-    public void bind(RecyclerView.ViewHolder viewHolder) {
+    public void bind(@NonNull RecyclerView.ViewHolder viewHolder) {
         ((BannerViewHolder)viewHolder).setBannerHeader("Banner");
     }
 

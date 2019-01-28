@@ -1,29 +1,30 @@
-package com.joshualorett.heterogeneousrecyclerviewstudy.lib;
+package com.joshualorett.heterogeneousrecyclerviewstudy.lib
 
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView
 
 /**
- * Bind a ViewHolder with provided data T.
+ * Bind a ViewHolder with data of type T.
+ * T is a covariant type parameter, in other words "ViewHolderBinder is a producer of T's"
  * Created by Joshua on 11/20/2016.
  */
 
-public interface ViewHolderBinder<T> {
+interface ViewHolderBinder<out T> {
     /***
      * Get the view type this binder is associated with. This should match at least one
      * ViewHolderCreator's view type.
      * @return View type
      */
-    int getViewType();
+    val viewType: Int
 
     /***
      * Bind ViewHolder with data T held.
      * @param viewHolder the ViewHolder we want to bind data to.
      */
-    void bind(RecyclerView.ViewHolder viewHolder);
+    fun bind(viewHolder: RecyclerView.ViewHolder)
 
     /***
      * Emit that data this binder holds.
      * @return data of type T.
      */
-    T emit();
+    fun emit(): T
 }

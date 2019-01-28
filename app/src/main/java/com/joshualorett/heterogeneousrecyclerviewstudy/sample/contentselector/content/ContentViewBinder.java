@@ -1,5 +1,6 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
@@ -10,7 +11,7 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder;
  * Created by Joshua on 12/10/2016.
  */
 
-public class ContentViewBinder implements ViewHolderBinder {
+public class ContentViewBinder implements ViewHolderBinder<Content> {
     private Content content;
 
     public ContentViewBinder(Content content) {
@@ -23,12 +24,12 @@ public class ContentViewBinder implements ViewHolderBinder {
     }
 
     @Override
-    public void bind(RecyclerView.ViewHolder viewHolder) {
+    public void bind(@NonNull RecyclerView.ViewHolder viewHolder) {
         ((ContentViewHolder)viewHolder).cardTitleView.setText(content.getTitle());
     }
 
     @Override
-    public Object emit() {
+    public Content emit() {
         return content;
     }
 }

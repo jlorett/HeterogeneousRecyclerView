@@ -10,7 +10,13 @@ import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.HeterogeneousRecyclerViewAdapter;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentCreator;
+import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewHolder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * ViewHolder for content selector.
@@ -44,7 +50,7 @@ public class ContentSelectorViewHolder extends RecyclerView.ViewHolder {
         recyclerView.setAdapter(adapter);
     }
 
-    private ViewHolderCreator[] getCreators() {
+    private List<? extends ViewHolderCreator> getCreators() {
         ContentCreator contentCreator = new ContentCreator();
         contentCreator.setContentClickListener(new ContentViewHolder.ContentClickListener() {
             @Override
@@ -54,13 +60,15 @@ public class ContentSelectorViewHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
-        return new ViewHolderCreator[]{contentCreator};
+        return Collections.singletonList(contentCreator);
     }
 
-    public void setData(ViewHolderBinder[] viewHolderBinders) {
+    public void setData(List<ContentViewBinder> viewHolderBinders) {
         HeterogeneousRecyclerViewAdapter adapter = (HeterogeneousRecyclerViewAdapter) recyclerView.getAdapter();
-        adapter.setData(viewHolderBinders);
-        adapter.notifyDataSetChanged();
+        if(adapter != null) {
+            adapter.setBinders(viewHolderBinders);
+            adapter.notifyDataSetChanged();
+        }
     }
 
     public void setHeaderActionClickListener(HeaderActionClickListener listener) {

@@ -1,28 +1,28 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewBinder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ContentSelectorViewHolder Binder.
  * Created by Joshua on 11/21/2016.
  */
 
-public class ContentSelectorViewBinder implements ViewHolderBinder<ContentViewBinder[]> {
-    private ContentViewBinder[] binders;
+public class ContentSelectorViewBinder implements ViewHolderBinder<List<ContentViewBinder>> {
+    private List<ContentViewBinder> binders;
 
     public ContentSelectorViewBinder(){
-        this.binders = new ContentViewBinder[0];
+        this.binders = new ArrayList<>(0);
     }
 
-    public ContentSelectorViewBinder(ContentViewBinder[] binders) {
-        this.binders = binders;
-    }
-
-    public void setBinders(ContentViewBinder[] binders) {
+    public ContentSelectorViewBinder(List<ContentViewBinder> binders) {
         this.binders = binders;
     }
 
@@ -32,13 +32,13 @@ public class ContentSelectorViewBinder implements ViewHolderBinder<ContentViewBi
     }
 
     @Override
-    public void bind(RecyclerView.ViewHolder viewHolder) {
+    public void bind(@NonNull RecyclerView.ViewHolder viewHolder) {
         ContentSelectorViewHolder contentViewHolder = (ContentSelectorViewHolder) viewHolder;
         contentViewHolder.setData(binders);
     }
 
     @Override
-    public ContentViewBinder[] emit() {
+    public List<ContentViewBinder> emit() {
         return binders;
     }
 }
