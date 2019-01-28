@@ -20,7 +20,7 @@ class HeterogeneousRecyclerViewAdapter(viewHolderCreators: List<ViewHolderCreato
     /***
      * Get the data for your list. The ViewHolderBinders that bind data to your ViewHolders.
      */
-    var binders: List<ViewHolderBinder<*>> = emptyList()
+    var binders: List<ViewHolderBinder<Any>> = emptyList()
 
     private var creators: SparseArrayCompat<ViewHolderCreator> = SparseArrayCompat(viewHolderCreators.size)
 
