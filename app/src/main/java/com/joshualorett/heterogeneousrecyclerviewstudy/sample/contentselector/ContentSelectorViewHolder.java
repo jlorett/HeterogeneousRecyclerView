@@ -1,20 +1,17 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
 import com.joshualorett.heterogeneousrecyclerviewstudy.R;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderCreator;
-import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.HeterogeneousRecyclerViewAdapter;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentCreator;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewBinder;
 import com.joshualorett.heterogeneousrecyclerviewstudy.sample.contentselector.content.ContentViewHolder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

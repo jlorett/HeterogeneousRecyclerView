@@ -1,6 +1,6 @@
 package com.joshualorett.heterogeneousrecyclerviewstudy.lib
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Bind a ViewHolder with data of type T.
