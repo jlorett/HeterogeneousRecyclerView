@@ -3,7 +3,7 @@ package com.joshualorett.heterogeneousrecyclerviewstudy.lib.paging
 import com.joshualorett.heterogeneousrecyclerviewstudy.lib.ViewHolderBinder
 
 /**
- * A [ViewHolderBinder] that works with [PagedListAdapter]
+ * A [ViewHolderBinder] that works with [PagingHeterogeneousRecyclerViewAdapter]
  * Created by Joshua on 1/28/2019.
  */
 
