@@ -1,7 +1,7 @@
-package com.joshualorett.heterogeneousrecyclerviewadapter.lib.paging
+package com.joshualorett.heterogeneousrecyclerviewadapter.paging
 
 import android.view.ViewGroup
-import com.joshualorett.heterogeneousrecyclerviewadapter.lib.ViewHolderCreator
+import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderCreator
 
 import org.junit.Assert.*
 import org.junit.Test

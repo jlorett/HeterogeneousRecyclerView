@@ -1,11 +1,11 @@
-package com.joshualorett.heterogeneousrecyclerviewadapter.lib.paging
+package com.joshualorett.heterogeneousrecyclerviewadapter.paging
 
 import androidx.collection.SparseArrayCompat
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.joshualorett.heterogeneousrecyclerviewadapter.lib.ViewHolderCreator
+import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderCreator
 
 /**
  * This adapter will trigger ViewHolder creation and binding in a paged fashion via its

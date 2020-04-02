@@ -1,6 +1,6 @@
-package com.joshualorett.heterogeneousrecyclerviewadapter.lib.paging
+package com.joshualorett.heterogeneousrecyclerviewadapter.paging
 
-import com.joshualorett.heterogeneousrecyclerviewadapter.lib.ViewHolderBinder
+import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderBinder
 
 /**
  * A [ViewHolderBinder] that works with [PagingHeterogeneousRecyclerViewAdapter]

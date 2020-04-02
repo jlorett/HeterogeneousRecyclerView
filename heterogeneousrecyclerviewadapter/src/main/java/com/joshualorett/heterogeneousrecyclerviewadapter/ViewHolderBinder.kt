@@ -1,4 +1,4 @@
-package com.joshualorett.heterogeneousrecyclerviewadapter.lib
+package com.joshualorett.heterogeneousrecyclerviewadapter
 
 import androidx.recyclerview.widget.RecyclerView
 
