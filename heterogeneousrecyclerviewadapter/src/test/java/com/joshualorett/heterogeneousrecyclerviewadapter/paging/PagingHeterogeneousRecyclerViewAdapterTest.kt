@@ -1,6 +1,7 @@
 package com.joshualorett.heterogeneousrecyclerviewadapter.paging
 
 import android.view.ViewGroup
+import androidx.collection.SparseArrayCompat
 import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderCreator
 
 import org.junit.Assert.*
@@ -28,7 +29,9 @@ class PagingHeterogeneousRecyclerViewAdapterTest {
     fun failIfWeTryToAddDuplicateKeys() {
         val mockCreator = Mockito.mock(ViewHolderCreator::class.java)
         Mockito.`when`(mockCreator.viewType).thenReturn(1)
-        val adapter = PagingHeterogeneousRecyclerViewAdapter(listOf(mockCreator))
+        val viewHolderCreatorMap = SparseArrayCompat<ViewHolderCreator>()
+        viewHolderCreatorMap.append(mockCreator.viewType, mockCreator)
+        val adapter = PagingHeterogeneousRecyclerViewAdapter(viewHolderCreatorMap)
         adapter.addCreator(mockCreator)
     }
 
@@ -36,7 +39,9 @@ class PagingHeterogeneousRecyclerViewAdapterTest {
     fun removeCreator() {
         val mockCreator = Mockito.mock(ViewHolderCreator::class.java)
         Mockito.`when`(mockCreator.viewType).thenReturn(1)
-        val adapter = PagingHeterogeneousRecyclerViewAdapter(listOf(mockCreator))
+        val viewHolderCreatorMap = SparseArrayCompat<ViewHolderCreator>()
+        viewHolderCreatorMap.append(mockCreator.viewType, mockCreator)
+        val adapter = PagingHeterogeneousRecyclerViewAdapter(viewHolderCreatorMap)
         adapter.removeCreatorByViewType(1)
         assertEquals(0, adapter.itemCount)
     }

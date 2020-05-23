@@ -16,14 +16,9 @@ import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderCreator
  *
  * Created by Joshua on 1/28/2019.
  */
-class PagingHeterogeneousRecyclerViewAdapter(viewHolderCreators: List<ViewHolderCreator> = emptyList(),
+class PagingHeterogeneousRecyclerViewAdapter(private var creators: SparseArrayCompat<ViewHolderCreator> = SparseArrayCompat(),
                                              diffUtilItemCallback: DiffUtil.ItemCallback<PagedViewHolderBinder<Any>> = defaultDiff)
     : PagedListAdapter<PagedViewHolderBinder<Any>, RecyclerView.ViewHolder>(diffUtilItemCallback) {
-    private var creators: SparseArrayCompat<ViewHolderCreator> = SparseArrayCompat(viewHolderCreators.size)
-
-    init {
-        viewHolderCreators.forEach { creator -> creators.put(creator.viewType, creator) }
-    }
 
     fun addCreator(creator: ViewHolderCreator) {
         if(creators.containsKey(creator.viewType)) {
