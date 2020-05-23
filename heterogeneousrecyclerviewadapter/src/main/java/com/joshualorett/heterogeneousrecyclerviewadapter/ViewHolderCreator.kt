@@ -10,10 +10,10 @@ import android.view.ViewGroup
 
 interface ViewHolderCreator {
     /***
-     * Get the view holders view type. This should match at least one ViewHolderBinder's view type.
-     * @return View type
+     * Get the view holders id. This should match a ViewHolderBinder id.
+     * @return identifier for the view.
      */
-    val viewType: Int
+    val id: Int
 
     /***
      * Create a new view holder.

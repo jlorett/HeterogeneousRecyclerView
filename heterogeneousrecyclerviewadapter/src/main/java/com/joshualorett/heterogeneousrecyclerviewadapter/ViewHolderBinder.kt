@@ -10,11 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 
 interface ViewHolderBinder<out T> {
     /***
-     * Get the view type this binder is associated with. This should match at least one
-     * ViewHolderCreator's view type.
-     * @return View type
+     * Get the view id this binder is associated with. This should match the id of a ViewHolderCreator.
+     * @return identifier for the view.
      */
-    val viewType: Int
+    val id: Int
 
     /***
      * Bind ViewHolder with data T held.

@@ -28,9 +28,9 @@ class PagingHeterogeneousRecyclerViewAdapterTest {
     @Test(expected = IllegalArgumentException::class)
     fun failIfWeTryToAddDuplicateKeys() {
         val mockCreator = Mockito.mock(ViewHolderCreator::class.java)
-        Mockito.`when`(mockCreator.viewType).thenReturn(1)
+        Mockito.`when`(mockCreator.id).thenReturn(1)
         val viewHolderCreatorMap = SparseArrayCompat<ViewHolderCreator>()
-        viewHolderCreatorMap.append(mockCreator.viewType, mockCreator)
+        viewHolderCreatorMap.append(mockCreator.id, mockCreator)
         val adapter = PagingHeterogeneousRecyclerViewAdapter(viewHolderCreatorMap)
         adapter.addCreator(mockCreator)
     }
@@ -38,9 +38,9 @@ class PagingHeterogeneousRecyclerViewAdapterTest {
     @Test
     fun removeCreator() {
         val mockCreator = Mockito.mock(ViewHolderCreator::class.java)
-        Mockito.`when`(mockCreator.viewType).thenReturn(1)
+        Mockito.`when`(mockCreator.id).thenReturn(1)
         val viewHolderCreatorMap = SparseArrayCompat<ViewHolderCreator>()
-        viewHolderCreatorMap.append(mockCreator.viewType, mockCreator)
+        viewHolderCreatorMap.append(mockCreator.id, mockCreator)
         val adapter = PagingHeterogeneousRecyclerViewAdapter(viewHolderCreatorMap)
         adapter.removeCreatorByViewType(1)
         assertEquals(0, adapter.itemCount)
