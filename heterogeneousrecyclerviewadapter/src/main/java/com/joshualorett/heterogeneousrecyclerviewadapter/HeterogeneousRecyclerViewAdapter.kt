@@ -22,10 +22,10 @@ class HeterogeneousRecyclerViewAdapter(private var viewHolderCreatorMap: SparseA
     var binders: List<ViewHolderBinder<Any>> = emptyList()
 
     fun addCreator(creator: ViewHolderCreator) {
-        if(viewHolderCreatorMap.containsKey(creator.viewType)) {
-            throw IllegalArgumentException("A creator of type ${creator.viewType} already exists.")
+        if(viewHolderCreatorMap.containsKey(creator.id)) {
+            throw IllegalArgumentException("A creator of type ${creator.id} already exists.")
         }
-        viewHolderCreatorMap.put(creator.viewType, creator)
+        viewHolderCreatorMap.put(creator.id, creator)
     }
 
     fun removeCreatorByViewType(viewType: Int) {
@@ -46,7 +46,7 @@ class HeterogeneousRecyclerViewAdapter(private var viewHolderCreatorMap: SparseA
     }
 
     override fun getItemViewType(position: Int): Int {
-        return binders[position].viewType
+        return binders[position].id
     }
 
     override fun getItemCount(): Int {

@@ -21,10 +21,10 @@ class PagingHeterogeneousRecyclerViewAdapter(private var creators: SparseArrayCo
     : PagedListAdapter<PagedViewHolderBinder<Any>, RecyclerView.ViewHolder>(diffUtilItemCallback) {
 
     fun addCreator(creator: ViewHolderCreator) {
-        if(creators.containsKey(creator.viewType)) {
-            throw IllegalArgumentException("A creator of type ${creator.viewType} already exists.")
+        if(creators.containsKey(creator.id)) {
+            throw IllegalArgumentException("A creator of type ${creator.id} already exists.")
         }
-        creators.put(creator.viewType, creator)
+        creators.put(creator.id, creator)
     }
 
     fun removeCreatorByViewType(viewType: Int) {
@@ -44,7 +44,7 @@ class PagingHeterogeneousRecyclerViewAdapter(private var creators: SparseArrayCo
 
     override fun getItemViewType(position: Int): Int {
         val data = getItem(position)
-        return data?.viewType ?: 0
+        return data?.id ?: 0
     }
 }
 
