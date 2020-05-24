@@ -1,10 +1,13 @@
-package com.joshualorett.heterogeneousrecyclerviewadapter
+package com.joshualorett.heterogeneousrecyclerviewadaptersample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.collection.SparseArrayCompat
-import com.joshualorett.heterogeneousrecyclerviewadapter.header.HeaderViewHolderBinder
-import com.joshualorett.heterogeneousrecyclerviewadapter.header.HeaderViewHolderCreator
+import com.joshualorett.heterogeneousrecyclerviewadapter.HeterogeneousRecyclerViewAdapter
+import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderBinder
+import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderCreator
+import com.joshualorett.heterogeneousrecyclerviewadaptersample.header.HeaderViewHolderBinder
+import com.joshualorett.heterogeneousrecyclerviewadaptersample.header.HeaderViewHolderCreator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

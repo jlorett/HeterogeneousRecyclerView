@@ -1,9 +1,9 @@
-package com.joshualorett.heterogeneousrecyclerviewadapter.header
+package com.joshualorett.heterogeneousrecyclerviewadaptersample.header
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.joshualorett.heterogeneousrecyclerviewadapter.R
+import com.joshualorett.heterogeneousrecyclerviewadaptersample.R
 
 /**
  * [RecyclerView.ViewHolder] for Header.

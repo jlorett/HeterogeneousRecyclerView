@@ -1,10 +1,10 @@
-package com.joshualorett.heterogeneousrecyclerviewadapter.header
+package com.joshualorett.heterogeneousrecyclerviewadaptersample.header
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.joshualorett.heterogeneousrecyclerviewadapter.R
 import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderCreator
+import com.joshualorett.heterogeneousrecyclerviewadaptersample.R
 
 /**
  * Creates [HeaderViewHolder].

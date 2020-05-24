@@ -1,3 +1,3 @@
 rootProject.name='HeterogeneousRecyclerViewAdapter'
-include ':app', ':heterogeneousrecyclerviewadapter-release'
 include ':heterogeneousrecyclerviewadapter'
+include ':heterogeneousrecyclerviewadaptersample'

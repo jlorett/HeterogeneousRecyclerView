@@ -1,8 +1,8 @@
-package com.joshualorett.heterogeneousrecyclerviewadapter.header
+package com.joshualorett.heterogeneousrecyclerviewadaptersample.header
 
 import androidx.recyclerview.widget.RecyclerView
-import com.joshualorett.heterogeneousrecyclerviewadapter.R
 import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderBinder
+import com.joshualorett.heterogeneousrecyclerviewadaptersample.R
 
 /**
  * Binds [HeaderViewHolder].
