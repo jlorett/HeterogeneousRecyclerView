@@ -1,6 +1,7 @@
 package com.joshualorett.heterogeneousrecyclerviewadaptersample.header
 
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.R
@@ -11,4 +12,6 @@ import com.joshualorett.heterogeneousrecyclerviewadaptersample.R
  */
 class HeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val headerItemText: TextView = itemView.findViewById(R.id.headerItemText)
+    val headerImage: ImageView = itemView.findViewById(R.id.headerImage)
+    val subHeader: TextView = itemView.findViewById(R.id.headerItemSubText)
 }
