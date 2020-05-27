@@ -2,6 +2,7 @@ package com.joshualorett.heterogeneousrecyclerviewadaptersample
 
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.header.HeaderStory
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.notice.Notice
+import com.joshualorett.heterogeneousrecyclerviewadaptersample.notice.Subscription
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.story.Story
 
 /**
@@ -28,7 +29,7 @@ class FeedRepository {
     }
 
     fun getNotice(): Notice {
-        return Notice("Support Our Journalism",
+        return Subscription("Support Our Journalism",
             "If you've been enjoying our content, consider subscribing. Subscribers get exclusive articles as well as full access to our archive.",
             "Subscribe")
     }
