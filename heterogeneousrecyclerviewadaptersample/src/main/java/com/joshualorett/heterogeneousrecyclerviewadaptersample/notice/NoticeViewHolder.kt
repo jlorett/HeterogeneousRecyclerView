@@ -10,8 +10,14 @@ import com.joshualorett.heterogeneousrecyclerviewadaptersample.R
  * [RecyclerView.ViewHolder] for Notice.
  * Created by Joshua on 5/25/2020.
  */
-class NoticeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class NoticeViewHolder(itemView: View, actionClicked: (position: Int) -> Unit): RecyclerView.ViewHolder(itemView) {
     val headline: TextView = itemView.findViewById(R.id.noticeHeadline)
     val message: TextView = itemView.findViewById(R.id.noticeMessage)
     val action: Button = itemView.findViewById(R.id.noticeAction)
+
+    init {
+        action.setOnClickListener {
+            actionClicked(adapterPosition)
+        }
+    }
 }

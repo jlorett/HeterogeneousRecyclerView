@@ -2,4 +2,5 @@
     <string name="app_name">Sample</string>
     <string name="headerImage">Header image.</string>
     <string name="read">Read</string>
+    <string name="subscribeThanks">Thanks for subscribing!</string>
 </resources>

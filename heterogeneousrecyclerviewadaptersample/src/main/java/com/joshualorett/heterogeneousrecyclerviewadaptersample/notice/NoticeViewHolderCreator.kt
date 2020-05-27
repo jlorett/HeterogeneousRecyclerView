@@ -10,11 +10,17 @@ import com.joshualorett.heterogeneousrecyclerviewadaptersample.R
  * Creates a [NoticeViewHolder].
  * Created by Joshua on 5/25/2020.
  */
-class NoticeViewHolderCreator: ViewHolderCreator {
+class NoticeViewHolderCreator(private val actionClickListener: ActionClickListener): ViewHolderCreator {
     override val id: Int
         get() = R.layout.list_item_notice
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
-        return NoticeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_notice, parent, false))
+        return NoticeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_notice, parent, false)) { position ->
+            actionClickListener.actionClicked(position)
+        }
+    }
+
+    interface ActionClickListener {
+        fun actionClicked(position: Int)
     }
 }
