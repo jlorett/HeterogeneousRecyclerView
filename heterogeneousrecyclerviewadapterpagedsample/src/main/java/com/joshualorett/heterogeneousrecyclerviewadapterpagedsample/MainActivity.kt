@@ -11,6 +11,7 @@ import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderCreator
 import com.joshualorett.heterogeneousrecyclerviewadapter.paging.PagedViewHolderBinder
 import com.joshualorett.heterogeneousrecyclerviewadapter.paging.PagingHeterogeneousRecyclerViewAdapter
 import com.joshualorett.heterogeneousrecyclerviewadapterpagedsample.header.HeaderViewHolderCreator
+import com.joshualorett.heterogeneousrecyclerviewadapterpagedsample.story.StoryViewHolderCreator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +30,9 @@ class MainActivity : AppCompatActivity() {
     private fun buildListAdapter(): PagingHeterogeneousRecyclerViewAdapter {
         val viewHolderCreatorMap = SparseArrayCompat<ViewHolderCreator>()
         val headerViewHolderCreator = HeaderViewHolderCreator()
+        val storyViewHolderCreator = StoryViewHolderCreator()
         viewHolderCreatorMap.put(headerViewHolderCreator.id, headerViewHolderCreator)
+        viewHolderCreatorMap.put(storyViewHolderCreator.id, storyViewHolderCreator)
         return PagingHeterogeneousRecyclerViewAdapter(viewHolderCreatorMap)
     }
 
