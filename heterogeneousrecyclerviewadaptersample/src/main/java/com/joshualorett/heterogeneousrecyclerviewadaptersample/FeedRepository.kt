@@ -1,5 +1,7 @@
 package com.joshualorett.heterogeneousrecyclerviewadaptersample
 
+import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderBinder
+import com.joshualorett.heterogeneousrecyclerviewadapter.paging.PagedViewHolderBinder
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.header.HeaderStory
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.notice.Notice
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.notice.Subscription
@@ -19,6 +21,12 @@ class FeedRepository {
     private val climate =  Story("The Global Surface Temperature Change of the Last 50 Years", "Climate")
     private val nebula = Story("The Gum Nebula", "Astronomy")
     private val waterfall = Story("Emerging Trends in Freshwater Availability", "Hydrology")
+
+    private val data: List<ViewHolderBinder<Any>> = listOf()
+
+    fun getData(): List<ViewHolderBinder<Any>> {
+        return data
+    }
 
     fun getHeaderStory(): HeaderStory {
         return listOf(tiger, jellyFish, desert).random()

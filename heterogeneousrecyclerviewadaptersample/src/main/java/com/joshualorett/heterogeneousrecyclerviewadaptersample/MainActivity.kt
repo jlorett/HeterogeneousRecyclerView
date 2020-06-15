@@ -10,12 +10,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.joshualorett.heterogeneousrecyclerviewadapter.HeterogeneousRecyclerViewAdapter
 import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderBinder
 import com.joshualorett.heterogeneousrecyclerviewadapter.ViewHolderCreator
-import com.joshualorett.heterogeneousrecyclerviewadaptersample.header.HeaderViewHolderBinder
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.header.HeaderViewHolderCreator
-import com.joshualorett.heterogeneousrecyclerviewadaptersample.notice.NoticeViewHolderBinder
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.notice.NoticeViewHolderCreator
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.notice.Subscription
-import com.joshualorett.heterogeneousrecyclerviewadaptersample.story.StoryViewHolderBinder
 import com.joshualorett.heterogeneousrecyclerviewadaptersample.story.StoryViewHolderCreator
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -54,13 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun buildListData(): List<ViewHolderBinder<Any>> {
-        val headerViewHolderBinder = HeaderViewHolderBinder(storyRepository.getHeaderStory())
-        val storyViewHolderBinders: List<ViewHolderBinder<Any>> = storyRepository.getStories().map { story -> StoryViewHolderBinder(story) }
-        val noticeViewHolderBinder = NoticeViewHolderBinder(storyRepository.getNotice())
-        val data: MutableList<ViewHolderBinder<Any>> = mutableListOf(headerViewHolderBinder)
-        data.addAll(storyViewHolderBinders)
-        data.add(noticeViewHolderBinder)
-        return data
+        return storyRepository.getData()
     }
 
     private fun subscribe() {
