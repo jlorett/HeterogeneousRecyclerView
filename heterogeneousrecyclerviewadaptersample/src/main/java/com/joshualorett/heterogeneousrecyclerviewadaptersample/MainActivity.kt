@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun buildListData(): List<ViewHolderBinder<Any>> {
-        return storyRepository.getData()
+        return storyRepository.data
     }
 
     private fun subscribe() {
